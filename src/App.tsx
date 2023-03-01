@@ -27,7 +27,20 @@ function App(): JSX.Element {
   const navigate = useNavigate()
   
   const [user, setUser] = useState<User | null>(authService.getUser())
-  const [profiles, setProfiles] = useState([])
+  const [profiles, setProfiles] = useState<Profile[]>([])
+
+  useEffect((): void => {
+    const fetchProfiles = async (): Promise<void> => {
+      try {
+        const profileData: Profile[] = await profileService.getAllProfiles()
+        setProfiles(profileData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    user ? fetchProfiles() : setProfiles([])
+  }, [user])
+
 
   const handleLogout = (): void => {
     authService.logout()
