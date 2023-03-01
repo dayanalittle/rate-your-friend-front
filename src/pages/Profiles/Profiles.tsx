@@ -1,3 +1,6 @@
+// components
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
+
 // npm packages
 
 // services
@@ -14,14 +17,13 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
 
   if (!profiles.length) return <p>No profiles yet</p>
 
-  return (
-    <>
-      <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.map((profile: Profile) =>
-        <p key={profile.id}>{profile.name}</p>
-      )}
-    </>
-  )
+    return (
+      <main className='list'>
+        {profiles.map((profile: Profile) =>
+          <ProfileCard key={profile.id} profile={profile} />
+        )}
+      </main>
+    )
 }
 
 export default Profiles
