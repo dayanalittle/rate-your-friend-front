@@ -16,7 +16,6 @@ const NavBar = (props: NavBarProps): JSX.Element => {
     <nav>
       {user ?
         <ul>
-          
           <li><NavLink to="/">HOME</NavLink></li>
           <li><NavLink to="/profiles">ALL FRIENDS</NavLink></li>
           <li><NavLink to="/change-password">CHANGE PASSWORD</NavLink></li>
