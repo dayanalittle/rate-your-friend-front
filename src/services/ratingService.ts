@@ -17,7 +17,7 @@ async function giveRating(formData: RatingManagerFormData): Promise<Profile> {
       },
       body: JSON.stringify(formData)
     })
-    return await res.json()
+    return await res.json() as Profile
   } catch (error) {
     throw error
   }
