@@ -17,6 +17,7 @@ export interface SignupFormData {
   email: string;
   password: string;
   passwordConf: string;
+  friendPassword: string;
 }
 
 export interface ChangePasswordFormData {

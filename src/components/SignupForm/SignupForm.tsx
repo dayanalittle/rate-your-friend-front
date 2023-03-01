@@ -23,6 +23,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
     email: '',
     password: '',
     passwordConf: '',
+    friendPassword: '',
   })
   const [photoData, setPhotoData] = useState<PhotoFormData>({
     photo: null
@@ -52,10 +53,10 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
     }
   }
 
-  const { name, email, password, passwordConf } = formData
+  const { name, email, password, passwordConf, friendPassword } = formData
 
   const isFormInvalid = (): boolean => {
-    return !(name && email && password && password === passwordConf)
+    return !(name && email && password && password === passwordConf && friendPassword === 'PASSWORD')
   }
 
   return (
@@ -64,6 +65,16 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
       onSubmit={handleSubmit}
       className={styles.container}
     >
+       <div className={styles.inputContainer}>
+        <label htmlFor="friendPassword" className={styles.label}>What's your friends password?</label>
+        <input
+          type="text"
+          id="friendPassword"
+          value={friendPassword}
+          name="friendPassword"
+          onChange={handleChange}
+        />
+      </div>
       <div className={styles.inputContainer}>
         <label htmlFor="name" className={styles.label}>Name</label>
         <input

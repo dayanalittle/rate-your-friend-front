@@ -25,7 +25,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
         <ProfileCard
           key={profile.id.toString()}
           profile={profile}
-          handleRatng={props.handleRating}
+          handleRating={props.handleRating}
         />
       )}
     </main>

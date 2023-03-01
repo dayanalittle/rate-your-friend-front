@@ -9,8 +9,8 @@ import { Profile } from '../../types/models'
 import { RatingManagerFormData } from '../../types/forms'
 
 interface ProfileCardProps {
-  profile: Profile;
-  handleRatng: (formData: RatingManagerFormData) => void;
+  profile: Profile; 
+  handleRating: (formData: RatingManagerFormData) => void;
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {
@@ -23,7 +23,7 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
       <img src={profilePic} alt={`${profile.name}'s avatar`} />
       <h1>{profile.name}</h1>
   
-      <RatingManager { ...props } />
+      <RatingManager {...props}  />
   
     </article>
   )
