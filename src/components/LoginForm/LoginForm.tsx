@@ -52,8 +52,8 @@ const LoginForm = (props: AuthFormProps): JSX.Element => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
         <input
+        placeholder='Email'
           type="text"
           id="email"
           value={formData.email}
@@ -62,8 +62,8 @@ const LoginForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
         <input
+        placeholder='Password'
           type="password"
           id="password"
           value={formData.password}
@@ -76,7 +76,7 @@ const LoginForm = (props: AuthFormProps): JSX.Element => {
           Log In
         </button>
         <Link to="/">
-          <button>Cancel</button>
+          <button>Nevermind</button>
         </Link>
       </div>
     </form>
