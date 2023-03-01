@@ -1,5 +1,5 @@
 // npm modules 
-import * as profileService from './services/profileService'
+
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
@@ -16,12 +16,15 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as profileService from './services/profileService'
+import * as ratingService from './services/ratingService'
 
 // stylesheets
 import './App.css'
 
 // types
 import { User, Profile } from './types/models'
+import { RatingManagerFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -50,6 +53,18 @@ function App(): JSX.Element {
 
   const handleAuthEvt = (): void => {
     setUser(authService.getUser())
+  }
+
+  const handleRating = async(formData: RatingManagerFormData) => {
+    try {
+      const updatedProfile = await ratingService.giveRating(formData)
+
+      setProfiles(profiles.map((profile) => (
+        profile.id === updatedProfile.id ? updatedProfile : profile
+      )))
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
