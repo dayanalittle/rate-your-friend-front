@@ -22,12 +22,12 @@ const Landing = ({ user, handleLogout }: LandingProps): JSX.Element => {
 
   return (
     <main className={styles.container}>
-      <h1>Meow Meow <br /> Beans</h1>
-      {/* <img src={} alt="A meow meow bean" /> */}
+      <h1>Rate <br /> Your Friends</h1>
+      <img src="https://i.imgur.com/ZQgiRK1.jpg" alt="rating pic" />
 
       {user &&
         <button onClick={handleDeleteAccount}>
-          DELETE ACCOUNT
+          END FRIENDSHIPS
         </button>
       }
     </main>
