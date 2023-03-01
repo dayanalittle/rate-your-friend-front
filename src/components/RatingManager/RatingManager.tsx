@@ -26,7 +26,7 @@ const RatingManager = (props: RatingManagerProps): JSX.Element => {
         <img
           id={rating.toString()}
           key={rating}
-          src={noBean}
+          src={rating <= profileRating ? bean : noBean} 
           alt="Bean Symbol"
         />
       ))}
