@@ -28,7 +28,7 @@ import { RatingManagerFormData } from './types/forms'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
-  
+
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [profiles, setProfiles] = useState<Profile[]>([])
 
@@ -55,7 +55,7 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
-  const handleRating = async(formData: RatingManagerFormData) => {
+  const handleRating = async (formData: RatingManagerFormData) => {
     try {
       const updatedProfile = await ratingService.giveRating(formData)
 
@@ -84,12 +84,10 @@ function App(): JSX.Element {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-            <Profiles
-              profiles={profiles}
-            />
-          </ProtectedRoute>
-        }
-      />
+              <Profiles profiles={profiles} handleRating={handleRating} />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/change-password"
           element={

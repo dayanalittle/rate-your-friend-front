@@ -6,9 +6,11 @@ import defaultPic from '../../assets/icons/profile.png'
 
 // types
 import { Profile } from '../../types/models'
+import { RatingManagerFormData } from '../../types/forms'
 
 interface ProfileCardProps {
   profile: Profile;
+  handleRatng: (formData: RatingManagerFormData) => void;
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {

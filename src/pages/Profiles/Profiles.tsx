@@ -7,9 +7,11 @@ import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 // types
 import { Profile } from "../../types/models";
+import { RatingManagerFormData } from '../../types/forms';
 
 interface ProfilesProps {
   profiles: Profile[];
+  handleRating: (formData: RatingManagerFormData) => void;
 }
 
 const Profiles = (props: ProfilesProps): JSX.Element => {
@@ -17,13 +19,17 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
 
   if (!profiles.length) return <p>No profiles yet</p>
 
-    return (
-      <main className='list'>
-        {profiles.map((profile: Profile) =>
-          <ProfileCard key={profile.id} profile={profile} />
-        )}
-      </main>
-    )
+  return (
+    <main className='list'>
+      {props.profiles.map((profile: Profile) =>
+        <ProfileCard
+          key={profile.id.toString()}
+          profile={profile}
+          handleRatng={props.handleRating}
+        />
+      )}
+    </main>
+  )
 }
 
 export default Profiles
