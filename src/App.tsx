@@ -1,5 +1,6 @@
 // npm modules 
-import { useState } from 'react'
+import * as profileService from './services/profileService'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
@@ -20,12 +21,14 @@ import * as authService from './services/authService'
 import './App.css'
 
 // types
-import { User } from './types/models'
+import { User, Profile } from './types/models'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
   
   const [user, setUser] = useState<User | null>(authService.getUser())
+  const [profiles, setProfiles] = useState([])
+
 
   const handleLogout = (): void => {
     authService.logout()
@@ -36,6 +39,8 @@ function App(): JSX.Element {
   const handleAuthEvt = (): void => {
     setUser(authService.getUser())
   }
+
+  
 
   return (
     <>
