@@ -11,17 +11,18 @@ interface NavBarProps {
 
 const NavBar = (props: NavBarProps): JSX.Element => {
   const { user, handleLogout } = props
-  
+
   return (
     <nav>
       {user ?
         <ul>
-          <li>Welcome, {user.name}</li>
-          <li><NavLink to="/profiles">Profiles</NavLink></li>
-          <li><NavLink to="/change-password">Change Password</NavLink></li>
+          
+          <li><NavLink to="/">HOME</NavLink></li>
+          <li><NavLink to="/profiles">ALL FRIENDS</NavLink></li>
+          <li><NavLink to="/change-password">CHANGE PASSWORD</NavLink></li>
           <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
         </ul>
-      :
+        :
         <ul>
           <li><NavLink to="/login">Log In</NavLink></li>
           <li><NavLink to="/signup">Sign Up</NavLink></li>
