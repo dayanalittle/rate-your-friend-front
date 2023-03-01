@@ -21,15 +21,14 @@ import * as authService from './services/authService'
 import './App.css'
 
 // types
-import { User, Profile } from './types/models'
+import { User } from './types/models'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
   
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [profiles, setProfiles] = useState([])
-
-
+  
   const handleLogout = (): void => {
     authService.logout()
     setUser(null)
@@ -39,8 +38,6 @@ function App(): JSX.Element {
   const handleAuthEvt = (): void => {
     setUser(authService.getUser())
   }
-
-  
 
   return (
     <>
