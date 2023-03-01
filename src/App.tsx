@@ -69,10 +69,12 @@ function App(): JSX.Element {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
-            </ProtectedRoute>
-          }
-        />
+            <Profiles
+              profiles={profiles}
+            />
+          </ProtectedRoute>
+        }
+      />
         <Route
           path="/change-password"
           element={
