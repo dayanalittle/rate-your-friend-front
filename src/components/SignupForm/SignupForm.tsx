@@ -14,7 +14,7 @@ import { SignupFormData, PhotoFormData } from '../../types/forms'
 import { handleErrMsg } from '../../types/validators'
 
 const SignupForm = (props: AuthFormProps): JSX.Element => {
-  const {updateMessage, handleAuthEvt} = props
+  const { updateMessage, handleAuthEvt } = props
   const navigate = useNavigate()
 
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -40,7 +40,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
 
   const handleSubmit = async (evt: React.FormEvent): Promise<void> => {
     evt.preventDefault()
-    if(isSubmitted) return
+    if (isSubmitted) return
     try {
       setIsSubmitted(true)
       await authService.signup(formData, photoData)
@@ -56,7 +56,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
   const { name, email, password, passwordConf, friendPassword } = formData
 
   const isFormInvalid = (): boolean => {
-    return !(name && email && password && password === passwordConf && friendPassword === 'PASSWORD')
+    return !(name && email && password && password === passwordConf && friendPassword === 'SEI')
   }
 
   return (
@@ -65,19 +65,10 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
       onSubmit={handleSubmit}
       className={styles.container}
     >
-       <div className={styles.inputContainer}>
-        <label htmlFor="friendPassword" className={styles.label}>What's your friends password?</label>
-        <input
-          type="text"
-          id="friendPassword"
-          value={friendPassword}
-          name="friendPassword"
-          onChange={handleChange}
-        />
-      </div>
+
       <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
         <input
+          placeholder='Name'
           type="text"
           id="name"
           value={name}
@@ -86,10 +77,8 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>
-          Email
-        </label>
         <input
+          placeholder='Email'
           type="text"
           id="email"
           value={email}
@@ -98,10 +87,8 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>
-          Password
-        </label>
         <input
+          placeholder='Password'
           type="password"
           id="password"
           value={password}
@@ -110,10 +97,8 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
-          Confirm Password
-        </label>
         <input
+          placeholder='Confirm Password'
           type="password"
           id="confirm"
           value={passwordConf}
@@ -122,10 +107,9 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="photo-upload" className={styles.label}>
-          Upload Photo
-        </label>
+
         <input
+          placeholder='Upload Photo'
           type="file"
           id="photo-upload"
           name="photo"
@@ -133,14 +117,24 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <button 
-          disabled={isFormInvalid() || isSubmitted} 
+        <input
+          placeholder='SECRET SECRET CODE'
+          type="text"
+          id="friendPassword"
+          value={friendPassword}
+          name="friendPassword"
+          onChange={handleChange}
+        />
+      </div>
+      <div className={styles.inputContainer}>
+        <button
+          disabled={isFormInvalid() || isSubmitted}
           className={styles.button}
         >
-          {!isSubmitted ? "Sign Up" : "🚀 Sending..."}
+          {!isSubmitted ? "Start Friendship" : "🚀 Befriending..."}
         </button>
         <Link to="/">
-          <button>Cancel</button>
+          <button>Nevermind</button>
         </Link>
       </div>
     </form>

@@ -1,16 +1,36 @@
 .container {
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  flex-direction: column;
+  font-family: sofia-pro-soft, sans-serif;
+
 }
 
-.label,
-.button {
-  margin-right: .5rem;
+.container input,
+textarea,
+select,
+button {
+  padding: 14px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin: 7px 0px 14px 0px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
-.inputContainer {
-  margin-bottom: 1rem;
+.container button {
+  color: white;
+  font-size: 12px;
+  border-radius: 10px;
+  background: black;
+  text-align: center;
+  font-weight: 800;
+  border: 2px solid;
+  padding: 10px 24px 10px 24px;
+  margin: auto;
+  width: 144px;
+}
+
+.container input {
+  border: 1px solid black;
+  width: 300px;
 }
