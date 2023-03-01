@@ -53,10 +53,8 @@ const ChangePasswordForm = (props: AuthFormProps): JSX.Element => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>
-          Current Password
-        </label>
         <input
+        placeholder='Current Password'
           type="password"
           id="oldPassword"
           value={oldPassword}
@@ -65,10 +63,8 @@ const ChangePasswordForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="newPassword" className={styles.label}>
-          New Password
-        </label>
         <input
+        placeholder='New Password'
           type="password"
           id="newPassword"
           value={newPassword}
@@ -77,10 +73,8 @@ const ChangePasswordForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="newPasswordConf" className={styles.label}>
-          Confirm New Password
-        </label>
         <input
+        placeholder='Confirm New Password'
           type="password"
           id="newPasswordConf"
           value={newPasswordConf}
